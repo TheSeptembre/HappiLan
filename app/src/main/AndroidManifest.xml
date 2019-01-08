@@ -16,7 +16,7 @@
                 android:theme="@style/generalnotitle">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
-
+                <user-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
