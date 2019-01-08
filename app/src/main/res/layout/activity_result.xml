@@ -4,7 +4,7 @@
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
-              android:theme="@android:style/Theme.NoTitleBar" tools:background="@color/colorAccent">
+              android:theme="@android:style/Theme.NoTitleBar">
     <TextView
             android:layout_marginTop="100dp"
             android:textAlignment="center"
@@ -12,15 +12,19 @@
             android:layout_height="wrap_content"
             android:id="@+id/result_success_title"
             android:text="@string/result_success_title"
-            android:textAppearance="@style/TextAppearance.AppCompat.Title.Inverse"/>
+            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+            android:textColor="@color/colorAccent"/>
     <TextView
             android:textAlignment="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/result_success_content"
             android:text="@string/result_success_content"
-            android:textAppearance="@style/TextAppearance.AppCompat.Title.Inverse"/>
+            android:textColor="@color/colorAccent"
+            android:textAppearance="@style/TextAppearance.AppCompat.Title"/>
     <Button
+            android:background="@color/colorAccent"
+            android:textColor="@color/white"
             android:layout_marginTop="200dp"
             android:layout_gravity="center"
             android:text="@string/button_continue"
