@@ -1,6 +1,17 @@
 <resources>
-    <string name="app_name">HappiLan</string>
+    <string name="app_name">Go Securi</string>
 
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
+
+    <string name="result_success_title">✔️</string>
+    <string name="result_success_content">Bravo !</string>
+    <string name="result_failed_title">❌</string>
+    <string name="result_failed_content">Oh noooon. :(</string>
+
+    <string name="button_redo">Revenir à l\\'accueil</string>
+    <string name="button_retry">Réessayer</string>
+    <string name="button_continue">Continuer</string>
+
+    <string name="button_home_gauche">Employé</string>
 </resources>
