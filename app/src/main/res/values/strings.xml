@@ -12,4 +12,6 @@
     <string name="button_redo">Revenir à l\\'accueil</string>
     <string name="button_retry">Réessayer</string>
     <string name="button_continue">Continuer</string>
+
+    <string name="button_home_gauche">Employé</string>
 </resources>
