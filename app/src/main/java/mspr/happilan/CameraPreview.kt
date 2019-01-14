@@ -10,7 +10,7 @@ class CameraPreview(
         // underlying surface is created and destroyed.
         addCallback(this@CameraPreview)
         // deprecated setting, but required on Android versions prior to 3.0
-        setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS)
+        //setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS)
     }
 
     override fun surfaceCreated(holder: SurfaceHolder) {
