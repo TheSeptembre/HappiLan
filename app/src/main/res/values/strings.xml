@@ -15,5 +15,6 @@
 
     <string name="button_home_gauche">Employé</string>
     <string name="button_home_droite">Vigile</string>
+    <string name="button_stop">retourner au menu</string>
 
 </resources>
