@@ -30,3 +30,4 @@ class Result {
         startActivity(homeIntent);
     }
 }
+
