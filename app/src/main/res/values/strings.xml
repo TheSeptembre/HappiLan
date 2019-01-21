@@ -9,7 +9,7 @@
     <string name="result_failed_title">❌</string>
     <string name="result_failed_content">Oh noooon. :(</string>
 
-    <string name="button_redo">Revenir à l\\'accueil</string>
+    <string name="button_redo">Accueil</string>
     <string name="button_retry">Réessayer</string>
     <string name="button_continue">Continuer</string>
 
