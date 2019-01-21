@@ -17,4 +17,14 @@
     <string name="button_home_droite">Vigile</string>
     <string name="button_stop">retourner au menu</string>
 
+
+    <string name="formuField1">Mousqueton</string>
+    <string name="formuField2">Mousqueton</string>
+    <string name="formuField3">Mousqueton</string>
+    <string name="formuField4">Mousqueton</string>
+    <string name="formuField5">Mousqueton</string>
+    <string name="formuField6">Mousqueton</string>
+    <string name="formuField7">Mousqueton</string>
+
+
 </resources>

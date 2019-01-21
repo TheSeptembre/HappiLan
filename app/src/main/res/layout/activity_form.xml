@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="fill_parent"
+              xmlns:tools="http://schemas.android.com/tools" android:layout_width="fill_parent"
               android:layout_height="fill_parent"
               android:orientation="vertical">
     <LinearLayout
@@ -14,9 +14,9 @@
             android:layout_height="wrap_content"
             android:padding="10dp" android:orientation="horizontal">
         <TextView
-                android:text="Mousqueton"
+                android:text="@string/formuField1"
                 android:layout_width="233dp"
-                android:layout_height="wrap_content" android:id="@+id/txtMousqueton"/>
+                android:layout_height="wrap_content" android:id="@+id/formulair_field1"/>
         <CheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" android:id="@+id/cbxMousqueton"/>
@@ -27,9 +27,9 @@
             android:layout_height="wrap_content"
             android:padding="10dp" android:orientation="horizontal">
         <TextView
-                android:text="Gants d'intervention"
+                android:text="@string/formuField2"
                 android:layout_width="233dp"
-                android:layout_height="wrap_content" android:id="@+id/txtGants"/>
+                android:layout_height="wrap_content" android:id="@+id/formulaire_field2"/>
         <CheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" android:id="@+id/cbxGants"/>
@@ -39,9 +39,9 @@
             android:layout_height="wrap_content"
             android:padding="10dp" android:orientation="horizontal">
         <TextView
-                android:text="Ceinture de sécurité tactique"
+                android:text="@string/formuField3"
                 android:layout_width="233dp"
-                android:layout_height="wrap_content" android:id="@+id/txtCeinture"/>
+                android:layout_height="wrap_content" android:id="@+id/formulaire_field3"/>
         <CheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" android:id="@+id/cbxCeinture"/>
@@ -51,9 +51,9 @@
             android:layout_height="wrap_content"
             android:padding="10dp" android:orientation="horizontal">
         <TextView
-                android:text="Détecteur de méteaux"
+                android:text="@string/formuField4"
                 android:layout_width="233dp"
-                android:layout_height="wrap_content" android:id="@+id/txtDetecteur"/>
+                android:layout_height="wrap_content" android:id="@+id/formulaire_field4"/>
         <CheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" android:id="@+id/cbxDetecteur"/>
@@ -63,9 +63,9 @@
             android:layout_height="wrap_content"
             android:padding="10dp" android:orientation="horizontal">
         <TextView
-                android:text="Brassard de sécurité"
+                android:text="@string/formuField5"
                 android:layout_width="233dp"
-                android:layout_height="wrap_content" android:id="@+id/txtBrassard"/>
+                android:layout_height="wrap_content" android:id="@+id/formulaire_field5"/>
         <CheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" android:id="@+id/cbxBrassard"/>
@@ -75,9 +75,9 @@
             android:layout_height="wrap_content"
             android:padding="10dp" android:orientation="horizontal">
         <TextView
-                android:text="Lampe torche"
+                android:text="@string/formuField6"
                 android:layout_width="233dp"
-                android:layout_height="wrap_content" android:id="@+id/txtLampe"/>
+                android:layout_height="wrap_content" android:id="@+id/formulaire_field6"/>
         <CheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" android:id="@+id/cbxLampe"/>
@@ -87,9 +87,9 @@
             android:layout_height="wrap_content"
             android:padding="10dp" android:orientation="horizontal">
         <TextView
-                android:text="Gilet pare balle"
+                android:text="@string/formuField7"
                 android:layout_width="233dp"
-                android:layout_height="wrap_content" android:id="@+id/txtGilet"/>
+                android:layout_height="wrap_content" android:id="@+id/formulaire_field7"/>
         <CheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" android:id="@+id/cbxGilet"/>
