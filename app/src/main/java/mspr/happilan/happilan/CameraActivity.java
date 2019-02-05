@@ -8,9 +8,12 @@ import android.hardware.camera2.CameraCaptureSession;
 import android.hardware.camera2.CameraCharacteristics;
 import android.hardware.camera2.CameraDevice;
 import android.hardware.camera2.CameraManager;
+import android.hardware.camera2.CameraMetadata;
 import android.hardware.camera2.CaptureRequest;
+import android.media.Image;
 import android.media.ImageReader;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.support.v7.app.AppCompatActivity;
@@ -22,6 +25,12 @@ import android.view.View;
 import android.widget.Button;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.nio.ByteBuffer;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
 
 public class CameraActivity extends AppCompatActivity {
 
@@ -92,13 +101,57 @@ public class CameraActivity extends AppCompatActivity {
             Size[] jpegSizes = null;
             if(characteristics != null)
                 jpegSizes = characteristics.get(CameraCharacteristics.SCALER_STREAM_CONFIGURATION_MAP).getOutputSizes(ImageFormat.JPEG);
-            
+            int width = 640;
+            int height = 480;
+            if(jpegSizes != null && jpegSizes.length > 0){
+                width = jpegSizes[0].getWidth();
+                height = jpegSizes[0].getHeight();
+            }
+            ImageReader reader = ImageReader.newInstance(width,height,ImageFormat.JPEG,1);
+            List<Surface> outputSurface = new ArrayList<>(2);
+            outputSurface.add(reader.getSurface());
+            outputSurface.add(new Surface(textureView.getSurfaceTexture()));
+
+            CaptureRequest.Builder captureBuilder = cameraDevice.createCaptureRequest(CameraDevice.TEMPLATE_STILL_CAPTURE);
+            captureBuilder.addTarget(reader.getSurface());
+            captureBuilder.set(CaptureRequest.CONTROL_MODE, CameraMetadata.CONTROL_MODE_AUTO);
+
+            int rotation = getWindowManager().getDefaultDisplay().getRotation();
+            captureBuilder.set(CaptureRequest.JPEG_ORIENTATION,ORIENTATIONS.get(rotation));
+            file = new File(Environment.getExternalStorageDirectory()+"/"+new UUID().randomUUID().toString()+".jpg");
+            ImageReader.OnImageAvailableListener readerListener = new ImageReader.OnImageAvailableListener() {
+                @Override
+                public void onImageAvailable(ImageReader reader) {
+                    Image image = null;
+                    try{
+                        image = reader.acquireLatestImage();
+                        ByteBuffer buffer = image.getPlanes()[0].getBuffer();
+                        byte[] bytes = new byte[buffer.capacity()];
+                        buffer.get(bytes);
+                        save(bytes);
+                    }
+                    catch(FileNotFoundException e){
+                        e.printStackTrace();
+                    }
+                    catch(IOException e){
+                        e.printStackTrace();
+                    }
+                    finally{
+                        if(image != null){
+                            image.close();
+                        }
+                    }
+                }
+                private void save(byte[] bytes) {
+                    
+                }
+
+            }
 
         } catch (CameraAccessException e) {
             e.printStackTrace();
         }
     }
-
     private void openCamera(){
 
     }
