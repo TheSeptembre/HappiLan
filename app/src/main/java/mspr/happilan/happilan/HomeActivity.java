@@ -24,7 +24,7 @@ public class HomeActivity extends AppCompatActivity {
         });
 
 
-        final Button buttonEmploye = (Button) findViewById(R.id.button3);
+        final Button buttonEmploye = (Button) findViewById(R.id.button4);
         buttonEmploye.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent(this, ResultActivity.class);
