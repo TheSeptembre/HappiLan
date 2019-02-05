@@ -10,12 +10,14 @@ import android.hardware.camera2.CameraDevice;
 import android.hardware.camera2.CameraManager;
 import android.hardware.camera2.CameraMetadata;
 import android.hardware.camera2.CaptureRequest;
+import android.hardware.camera2.TotalCaptureResult;
 import android.media.Image;
 import android.media.ImageReader;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.HandlerThread;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Size;
 import android.util.SparseIntArray;
@@ -23,10 +25,13 @@ import android.view.Surface;
 import android.view.TextureView;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.List;
@@ -137,18 +142,32 @@ public class CameraActivity extends AppCompatActivity {
                         e.printStackTrace();
                     }
                     finally{
-                        if(image != null){
+                        if(image != null)
                             image.close();
-                        }
                     }
                 }
-                private void save(byte[] bytes) {
-                    
+                private void save(byte[] bytes) throws IOException {
+                    OutputStream outputStream = null;
+                    try{
+                        outputStream = new FileOutputStream(file);
+                        outputStream.write(bytes);
+                    }
+                    finally{
+                        if(outputStream != null)
+                            outputStream.close();
+                    }
                 }
-
+            };
+            reader.setOnImageAvailableListener(readerListener,mBackgroundHandler);
+            CameraCaptureSession.CaptureCallback captureListener = new CameraCaptureSession.CaptureCallback() {
+                @Override
+                public void onCaptureCompleted(@androidx.annotation.@NonNull CameraCaptureSession session, @androidx.annotation.@NonNull CaptureRequest request, @androidx.annotation.@NonNull TotalCaptureResult result) {
+                    super.onCaptureCompleted(session, request, result);
+                    Toast.makeText(MainActivity.this, "Saved ", Toast.LENGTH_SHORT).show();
+                }
             }
-
-        } catch (CameraAccessException e) {
+        }
+        catch (CameraAccessException e) {
             e.printStackTrace();
         }
     }
