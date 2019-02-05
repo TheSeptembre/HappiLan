@@ -1,6 +1,7 @@
 package mspr.happilan.happilan;
 
 import android.content.Intent;
+import android.graphics.Camera;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -29,7 +30,7 @@ public class ResultActivity extends AppCompatActivity {
         final Button result_button = (Button) findViewById(R.id.result_button);
         result_button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent intent = new Intent(this, TakePicActivity.class);
+                Intent intent = new Intent(ResultActivity.this, CameraActivity.class);
                 startActivity(intent);
             }
         });
@@ -37,7 +38,7 @@ public class ResultActivity extends AppCompatActivity {
         final Button result_stop_button = (Button) findViewById(R.id.result_stop_button);
         result_stop_button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent intent = new Intent(this, HomeActivity.class);
+                Intent intent = new Intent(ResultActivity.this, HomeActivity.class);
                 startActivity(intent);
             }
         });
