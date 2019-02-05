@@ -17,6 +17,7 @@ public class HomeActivity extends AppCompatActivity {
         buttonVigile.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent(HomeActivity.this, ResultActivity.class);
+                intent.putExtra("RESULT", true);
                 startActivity(intent);
             }
         });
@@ -26,6 +27,7 @@ public class HomeActivity extends AppCompatActivity {
         buttonEmploye.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent(HomeActivity.this, ResultActivity.class);
+                intent.putExtra("RESULT", false);
                 startActivity(intent);
             }
         });

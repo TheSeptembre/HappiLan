@@ -11,10 +11,21 @@ import android.widget.TextView;
 
 public class ResultActivity extends AppCompatActivity {
 
-    protected void onCreate(Bundle savedInstanceState, Boolean RESULT) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_result);
+    }
 
-        Boolean RESULT_IS_SUCCESS = RESULT;
+    //TODO : DEBUG ***********************
+    //Copier cette partie dans un nouveau projet et tester si on a le même problème.
+    //Si non, c'est que ça vient de la manière dont on appelle l'activité.
+    //************************************
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Bundle b = getIntent().getExtras();
+        Boolean RESULT_IS_SUCCESS = b.getBoolean("RESULT");
 
         View content = (View)getLayoutInflater().inflate(R.layout.activity_result, null);
         TextView tvTitle = (TextView)content.findViewById(R.id.result_title);
@@ -25,7 +36,7 @@ public class ResultActivity extends AppCompatActivity {
             tvContent.setText(R.string.result_failed_content);
         }
 
-        setContentView(R.layout.activity_result);
+
 
         final Button result_button = (Button) findViewById(R.id.result_button);
         result_button.setOnClickListener(new View.OnClickListener() {
@@ -42,7 +53,6 @@ public class ResultActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
     }
-
-
 }
